@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  flex: 1;
+  padding: 8px;
+  height: max-content;
+}
+
+.actions {
+  display: flex;
+  column-gap: 4px;
+}
+
+.table-head-cell {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.search-input {
+  max-width: 240px;
+}
+
+.range-search {
+  display: flex;
+  column-gap: 16px;
+
+  .search-input {
+    max-width: 100px;
+    margin-left: 6px;
+  }
+}
+
+.mat-mdc-header-cell {
+  vertical-align: top;
+  padding-top: 4px;
+}
+
+.owner {
+  margin-bottom: 8px;
+}

@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
+  height: 100%;
+}
+
+.content {
+  overflow-x: auto;
+  padding-right: max(20px, calc((100vw - 1400px) / 2));
+  flex: 1;
+}
+
+.managing-header {
+  border-bottom: 1px solid var(--card-border);
+}
+
+.container {
+  display: flex;
+  box-sizing: content-box;
+  margin-left: max(20px, calc((100vw - 1400px) / 2));
+  overflow: hidden auto;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  box-shadow: 5px 0px 5px -5px var(--secondary);
+  width: 200px;
+  padding-top: 8px;
+  height: calc(100vh - 97px);
+}

@@ -1,0 +1,6 @@
+<ng-container
+  *ngFor="let notification of notificationService.activeNotifications$ | async">
+  <div [class]="'notification notification_' + notification.status">
+    <p>{{ notification.message }}</p>
+  </div>
+</ng-container>

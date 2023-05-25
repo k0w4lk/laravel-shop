@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  flex: 1;
+  padding: 8px;
+  height: max-content;
+}
+
+.card {
+  max-width: 400px;
+  margin-bottom: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.create-user-button {
+  width: max-content;
+}
+
+.actions {
+  height: 100%;
+}

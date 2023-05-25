@@ -1,0 +1,31 @@
+<div class="auth">
+  <div class="g-tabs">
+    <button
+      class="g-tab-name tab-name"
+      [ngClass]="{
+        'g-tab-name_active': selectedAction === 'sign-in'
+      }"
+      [disabled]="selectedAction === 'sign-in'"
+      (click)="selectAction('sign-in')">
+      Sign In
+    </button>
+    <button
+      class="g-tab-name tab-name"
+      [ngClass]="{
+        'g-tab-name_active': selectedAction === 'sign-up'
+      }"
+      [disabled]="selectedAction === 'sign-up'"
+      (click)="selectAction('sign-up')">
+      Sign Up
+    </button>
+  </div>
+
+  <div class="g-tabs-outlet">
+    <app-sign-in
+      *ngIf="selectedAction === 'sign-in'"
+      (authData)="saveAuthData($event)"></app-sign-in>
+    <app-sign-up
+      *ngIf="selectedAction === 'sign-up'"
+      (authData)="saveAuthData($event)"></app-sign-up>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+:host {
+  display: inline-block;
+}
+
+.button {
+  font-weight: 700;
+  background-color: var(--primary);
+  color: var(--text-contrast);
+  padding: 16px 46px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  font-size: 16px;
+
+  &_contrast {
+    background-color: #fff;
+    color: #2091f9;
+  }
+}

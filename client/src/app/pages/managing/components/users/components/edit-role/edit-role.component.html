@@ -1,0 +1,24 @@
+<form class="form" [formGroup]="editRoleForm" (ngSubmit)="editRole()">
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="slug">
+      <mat-option *ngFor="let role of data.roles" [value]="role.slug">
+        {{ role.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="buttons">
+    <button mat-flat-button class="button" color="primary" type="submit">
+      Save
+    </button>
+    <button
+      mat-flat-button
+      class="button"
+      color="warn"
+      type="button"
+      (click)="close()">
+      Cancel
+    </button>
+  </div>
+</form>

@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 8px 8px;
+  width: 400px;
+  height: 350px;
+  border: 1px solid var(--card-border);
+  background-color: var(--card-background);
+  box-shadow: var(--card-shadow);
+  border-radius: 6px;
+}
+
+.tab-name {
+  flex: 1;
+}

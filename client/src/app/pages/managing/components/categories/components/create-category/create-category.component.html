@@ -1,0 +1,20 @@
+<mat-card class="card">
+  <mat-card-content>
+    <h2>Create category</h2>
+
+    <form class="form" [formGroup]="categoryForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        type="button"
+        color="primary"
+        (click)="createCategory()">
+        Create
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="banner">
+  <div class="g-container">
+    <div class="banner-content">
+      <p class="banner-content-season">summer 2020</p>
+      <h1 class="banner-content-title">fashion</h1>
+      <p class="banner-content-tagline">Find The Perfect style for you</p>
+    </div>
+  </div>
+</div>
+
+<div class="g-container body">
+  <aside class="filters">
+    <div class="search">
+      <input
+        class="search-input"
+        placeholder="Search for products"
+        type="text"
+        [formControl]="nameSearchControl" />
+    </div>
+
+    <div class="filter-card">
+      <h6 class="filter-card-title">Price</h6>
+
+      <div>
+        <span class="price">
+          <input
+            class="price-input"
+            type="number"
+            min="0"
+            step="0.01"
+            [formControl]="priceFromControl" />
+        </span>
+        -
+        <span class="price">
+          <input
+            class="price-input"
+            type="number"
+            min="0"
+            step="0.01"
+            [formControl]="priceToControl" />
+        </span>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <h6 class="filter-card-title">Category</h6>
+
+      <form [formGroup]="categoriesForm">
+        <div class="categories" formArrayName="checkboxes">
+          <label *ngFor="let category of categories; let i = index">
+            <input type="checkbox" [formControlName]="i" />
+            {{ category.name }}
+          </label>
+        </div>
+      </form>
+    </div>
+  </aside>
+
+  <div class="content">
+    <div class="products">
+      <app-product-card
+        *ngFor="let product of products"
+        [product]="product"></app-product-card>
+    </div>
+
+    <app-pagination
+      *ngIf="products.length"
+      [pagination]="pagination"
+      (pageChanged)="paginate($event)"></app-pagination>
+
+    <div *ngIf="!products.length">Products not found</div>
+  </div>
+</div>

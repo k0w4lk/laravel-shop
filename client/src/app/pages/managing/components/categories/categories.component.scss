@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  flex: 1;
+  padding: 8px;
+}
+
+.table-head-cell {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+
+.search-input {
+  max-width: 240px;
+}

@@ -1,0 +1,17 @@
+<form class="form" [formGroup]="signInForm" (ngSubmit)="signIn()">
+  <label class="g-label">
+    <span class="g-label-name">Email</span>
+    <input formControlName="email" />
+  </label>
+
+  <label class="g-label">
+    <span class="g-label-name">Password</span>
+    <input
+      formControlName="password"
+      [type]="passwordHidden ? 'password' : 'text'" />
+  </label>
+
+  <app-button class="button" type="submit" (buttonClick)="signIn()">
+    Sign in
+  </app-button>
+</form>

@@ -1,0 +1,129 @@
+:host {
+  display: block;
+  padding-top: 16px;
+}
+
+.banner {
+  background: url('/assets/products-banner.jpeg') no-repeat center 45%;
+  background-size: cover;
+}
+
+.banner-content {
+  padding: 70px 0;
+  color: var(--text-contrast);
+  text-align: center;
+}
+
+.banner-content-season {
+  font-weight: 700;
+  font-size: 24px;
+  text-shadow: var(--text) 0px 4px 4px;
+  text-transform: uppercase;
+}
+
+.banner-content-title {
+  font-weight: 700;
+  margin: 8px 0;
+  font-size: 58px;
+  text-shadow: var(--text) 0px 4px 4px;
+  text-transform: capitalize;
+}
+
+.banner-content-tagline {
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: var(--text) 0px 4px 4px;
+}
+
+.body {
+  display: flex;
+  column-gap: 16px;
+}
+
+.content {
+  flex: 1;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 18px;
+  min-width: 380px;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background-color: var(--card-background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  height: max-content;
+  row-gap: 20px;
+}
+
+.search-input {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: var(--secondary);
+  border-radius: 7px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25) inset;
+  padding: 18px;
+  width: 100%;
+}
+
+.price {
+  position: relative;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: '$';
+    left: 4px;
+    font-size: 16px;
+    line-height: 20px;
+    top: 50%;
+    font-weight: 700;
+    transform: translateY(-50%);
+  }
+}
+
+.price-input {
+  width: 100px;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 4px 10px 16px;
+  position: relative;
+  border-radius: 7px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25) inset;
+}
+
+.filter-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 35px 16px;
+  border-radius: 5px;
+  border: 1px solid var(--card-border);
+  justify-content: flex-start;
+}
+
+.filter-card-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: var(--text);
+  margin: 0 0 24px;
+}
+
+.products {
+  display: grid;
+  grid-template: max-content / repeat(auto-fill, 200px);
+  gap: 40px;
+  padding: 40px 0;
+  flex: 1;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+}

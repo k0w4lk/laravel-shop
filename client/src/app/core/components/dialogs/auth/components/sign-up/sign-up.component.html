@@ -1,0 +1,18 @@
+<form class="form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+  <label class="g-label">
+    <span class="g-label-name">Name</span>
+    <input formControlName="name" />
+  </label>
+
+  <label class="g-label">
+    <span class="g-label-name">Email</span>
+    <input formControlName="email" />
+  </label>
+
+  <label class="g-label">
+    <span class="g-label-name">Password</span>
+    <input formControlName="password" />
+  </label>
+
+  <app-button class="button" type="submit">Sign up</app-button>
+</form>

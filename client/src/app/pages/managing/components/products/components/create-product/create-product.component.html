@@ -1,0 +1,41 @@
+<mat-card class="card">
+  <mat-card-content>
+    <h2>Create product</h2>
+
+    <form novalidate class="form" [formGroup]="productForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category_id">
+          <mat-option *ngFor="let category of categories" [value]="category.id">
+            {{ category.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" />
+      </mat-form-field>
+
+      <input #productImage class="file-input" type="file" />
+
+      <button
+        mat-flat-button
+        color="primary"
+        type="button"
+        (click)="createProduct()">
+        Create
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

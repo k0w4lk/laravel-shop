@@ -1,0 +1,114 @@
+<app-header></app-header>
+
+<div class="container">
+  <div *ngIf="product" class="g-container content">
+    <div class="product">
+      <img
+        class="product-image"
+        [src]="product.image_path || '/assets/No_Image_Available.jpg'" />
+
+      <div class="product-info">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <div class="product-rating-info">
+          <span *ngIf="product.rating_amount" class="product-rating-number">{{
+            +product.rating | number : '1.1-2'
+          }}</span>
+
+          <div *ngIf="product.rating_amount" class="product-rating">
+            <img class="prodcut-rating-star" src="/assets/rating-star.svg" />
+
+            <div
+              class="product-rating-hide"
+              [ngStyle]="{
+                'width.%': 100 - (+product.rating / 5) * 100
+              }"></div>
+          </div>
+
+          <span class="product-reviews-amount">
+            {{ product.rating_amount }} Reviews
+          </span>
+        </div>
+        <p class="product-price">${{ product.price }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="g-container tabs-container">
+    <div class="g-tabs tabs">
+      <button
+        class="g-tab-name"
+        [ngClass]="{
+          'g-tab-name_active': selectedTab === 'description'
+        }"
+        [disabled]="selectedTab === 'description'"
+        (click)="selectTab('description')">
+        Description
+      </button>
+      <button
+        class="g-tab-name"
+        [ngClass]="{
+          'g-tab-name_active': selectedTab === 'feedback'
+        }"
+        [disabled]="selectedTab === 'feedback'"
+        (click)="selectTab('feedback')">
+        Feedback
+      </button>
+    </div>
+
+    <div class="g-tabs-outlet">
+      <div *ngIf="selectedTab === 'description'">
+        {{ product?.description || 'No description' }}
+      </div>
+
+      <div *ngIf="selectedTab === 'feedback'" class="feedback">
+        <div>
+          <div class="review" *ngFor="let review of reviews">
+            <span class="review-user">{{ review.user }}</span>
+            <div class="product-rating">
+              <img src="/assets/rating-star.svg" />
+
+              <div
+                class="review-rating-hide"
+                [ngStyle]="{
+                  'width.%': 100 - (+review.rating / 5) * 100
+                }"></div>
+            </div>
+            <span class="review-text">{{ review.text }}</span>
+          </div>
+
+          <app-pagination
+            class="review-pagination"
+            [pagination]="reviewsPagination"
+            (pageChanged)="changeReviewsPage($event)"></app-pagination>
+        </div>
+
+        <form
+          *ngIf="userService.user$ | async"
+          class="feedback-form"
+          [formGroup]="feedbackForm"
+          (ngSubmit)="sendFeedback()">
+          <h4>Leave your feedback</h4>
+
+          <label class="g-label">
+            <span class="g-label-name">Rating</span>
+            <select formControlName="rating">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </label>
+
+          <label class="g-label">
+            <span class="g-label-name">Feedback</span>
+            <textarea
+              class="feedback-message"
+              formControlName="message"></textarea>
+          </label>
+          <button class="g-button">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

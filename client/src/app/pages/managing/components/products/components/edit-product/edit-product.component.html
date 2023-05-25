@@ -1,0 +1,27 @@
+<form class="form" [formGroup]="editProductForm" (ngSubmit)="editProduct()">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Price</mat-label>
+    <input matInput formControlName="price" />
+  </mat-form-field>
+
+  <img [src]="productImage" />
+
+  <div class="buttons">
+    <button mat-flat-button class="button" color="primary" type="submit">
+      Save
+    </button>
+    <button
+      mat-flat-button
+      class="button"
+      color="warn"
+      type="button"
+      (click)="close()">
+      Cancel
+    </button>
+  </div>
+</form>

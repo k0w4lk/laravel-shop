@@ -1,0 +1,149 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/assets/fonts/Montserrat-Bold.ttf');
+}
+
+:root {
+  --card-border: #e8e8e8;
+  --card-background: #fff;
+  --card-shadow: 0 2px 4px #0000001a;
+  --page-background: #f9f9f9;
+  --primary: #2091f9;
+  --secondary: #737373;
+  --text: #252b42;
+  --text-contrast: #fff;
+
+  font-size: 16px;
+  color: var(--text);
+  height: 100%;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat' !important;
+}
+
+.g {
+  &-container {
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  &-button {
+    background-color: var(--primary);
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--primary);
+    color: var(--text-contrast);
+    line-height: 28px;
+    font-size: 14px;
+    padding: 6px 32px;
+    cursor: pointer;
+
+    &_contrast {
+      color: var(--secondary);
+      background-color: var(--card-background);
+      border-color: var(--secondary);
+    }
+  }
+
+  &-label {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    input,
+    textarea,
+    select {
+      border: none;
+      outline: none;
+      background: none;
+      width: 100%;
+      border-bottom: 1px solid var(--secondary);
+      font-size: 18px;
+      font-family: inherit;
+
+      &:focus {
+        border-bottom-color: var(--primary);
+      }
+    }
+
+    textarea {
+      min-height: 80px;
+      max-height: 400px;
+      resize: vertical;
+    }
+  }
+
+  &-label-name {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  &-tabs {
+    display: flex;
+    margin-bottom: 8px;
+    border-bottom: 3px solid var(--secondary);
+  }
+
+  &-tab-name {
+    color: var(--secondary);
+    font-weight: 700;
+    background: none;
+    font-size: 16px;
+    border: none;
+    padding: 0 18px;
+    padding-bottom: 4px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &_active {
+      color: var(--primary);
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  &-tabs-outlet {
+    flex: 1;
+    padding: 4px;
+  }
+}

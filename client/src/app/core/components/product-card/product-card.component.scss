@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: 700;
+  color: black;
+  margin-top: 4px;
+  text-decoration: none;
+  width: max-content;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.price {
+  margin-top: 10px;
+}

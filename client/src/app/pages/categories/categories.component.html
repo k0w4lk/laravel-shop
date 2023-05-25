@@ -1,0 +1,21 @@
+<div class="intro">
+  <app-header class="main-header"></app-header>
+
+  <div class="g-container intro-content">
+    <p class="intro-content-season">SUMMER 2023</p>
+    <h1 class="intro-content-title">New Collection</h1>
+    <p class="intro-content-tagline">Find the Perfect Style for you</p>
+    <a class="intro-button" routerLink="/products">Shop Now</a>
+  </div>
+</div>
+
+<div class="g-container">
+  <h2 class="title">Categories</h2>
+
+  <div class="categories">
+    <app-category-card
+      class="category-card"
+      *ngFor="let category of categories"
+      [category]="category"></app-category-card>
+  </div>
+</div>

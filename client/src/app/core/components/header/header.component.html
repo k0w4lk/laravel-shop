@@ -1,0 +1,60 @@
+<header class="g-container header">
+  <nav class="navigation">
+    <a
+      class="link"
+      routerLink="/"
+      routerLinkActive="link_active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a class="link" routerLink="/products" routerLinkActive="link_active">
+      Shop
+    </a>
+  </nav>
+
+  <div
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    class="user"
+    (click)="userMenuOpened = !userMenuOpened">
+    <div class="user-avatar">
+      <svg
+        width="27"
+        height="29"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19.5 9c0 5-3 9-6 9s-6-4-6-9 2-8 6-8 6 3 6 8zm-18 19h24c0-9-6-10-12-10s-12 1-12 10z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </div>
+    <span>{{ user?.name || 'My Account' }}</span>
+  </div>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="userMenuOpened"
+    [cdkConnectedOverlayHasBackdrop]="true"
+    [cdkConnectedOverlayBackdropClass]="'cdk-overlay-transparent-backdrop'"
+    (backdropClick)="userMenuOpened = false">
+    <div class="user-menu">
+      <app-button *ngIf="!user" class="auth-button" (click)="openLoginDialog()">
+        Login
+      </app-button>
+
+      <div *ngIf="user" class="user-data">
+        <span class="user-name">{{ user.name }}</span>
+        <span class="user-email">{{ user.email }}</span>
+        <span class="user-role">{{ user.role.name }}</span>
+
+        <a class="managing" routerLink="/managing">Managing page</a>
+
+        <app-button class="auth-button" (click)="logOut()">Logout</app-button>
+      </div>
+    </div>
+  </ng-template>
+</header>

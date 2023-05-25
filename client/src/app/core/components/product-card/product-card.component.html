@@ -1,0 +1,9 @@
+<div class="container">
+  <img
+    class="image"
+    [src]="product.image_path || '/assets/No_Image_Available.jpg'" />
+  <a class="name" [routerLink]="['/products', product.id]">
+    {{ product.name }}
+  </a>
+  <span class="price">{{ product.price | currency }}</span>
+</div>
